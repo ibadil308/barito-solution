@@ -16,7 +16,7 @@ export default function Home() {
     {
       icon: Laptop,
       title: "Instalasi Laptop/PC",
-      description: "Instalasi sistem operasi, upgrade hardware, dan perbaikan komputer profesional.",
+      description: "Instalasi sistem operasi Windows(7,10,11)/linux/debian.",
       image: "/images/service-installation.jpg",
     },
     {
@@ -27,8 +27,8 @@ export default function Home() {
     },
     {
       icon: Globe,
-      title: "Pembuatan Website",
-      description: "Website profesional untuk UMKM, toko online, dan profil bisnis Anda.",
+      title: "Pembuatan Landing Page",
+      description: "Landing Page untuk UMKM, toko online, dan profil bisnis Anda.",
       image: "/images/service-website.jpg",
     },
   ];
