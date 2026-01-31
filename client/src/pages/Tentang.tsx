@@ -109,9 +109,6 @@ export default function Tentang() {
                   <p>
                     Dengan pengalaman dan keahlian di bidang teknologi informasi, kami siap membantu Anda mengatasi berbagai tantangan teknologi, mulai dari instalasi hardware dan software hingga pembuatan website profesional untuk bisnis Anda.
                   </p>
-                  <p>
-                    Tim kami terdiri dari teknisi berpengalaman yang siap memberikan solusi terbaik dan dukungan teknis yang responsif untuk memastikan sistem teknologi Anda berjalan dengan optimal.
-                  </p>
                 </div>
               </div>
             </div>
