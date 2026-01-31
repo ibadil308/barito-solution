@@ -1,10 +1,10 @@
-/* 
-  Design: Organic Tech - Asymmetric flow layout with organic shapes
+/* Design: Organic Tech - Asymmetric flow layout with organic shapes
   Hero section with custom generated background
   Service preview cards with soft shadows
+  Added: Ulis PONSEL Section
 */
 
-import { ArrowRight, Laptop, Globe, Package } from "lucide-react";
+import { ArrowRight, Laptop, Globe, Package, Smartphone, MapPin, Check } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -16,7 +16,7 @@ export default function Home() {
     {
       icon: Laptop,
       title: "Instalasi Laptop/PC",
-      description: "Instalasi sistem operasi Windows(7,10,11)/linux/debian.",
+      description: "Instalasi sistem operasi, upgrade hardware, dan perbaikan komputer profesional.",
       image: "/images/service-installation.jpg",
     },
     {
@@ -27,8 +27,8 @@ export default function Home() {
     },
     {
       icon: Globe,
-      title: "Pembuatan Landing Page",
-      description: "Landing Page untuk UMKM, toko online, dan profil bisnis Anda.",
+      title: "Pembuatan Website",
+      description: "Website profesional untuk UMKM, toko online, dan profil bisnis Anda.",
       image: "/images/service-website.jpg",
     },
   ];
@@ -152,6 +152,83 @@ export default function Home() {
                   </span>
                 </Link>
               </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* NEW SECTION: Ulis PONSEL */}
+        <section className="py-16 md:py-24 bg-secondary/30">
+          <div className="container">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Image Side */}
+              <div className="order-2 lg:order-1">
+                <div className="rounded-3xl overflow-hidden soft-shadow-lg aspect-video relative group">
+                  <img 
+                    src="/images/tokoulis.png" 
+                    alt="Toko Ulis PONSEL"
+                    className="w-full h-full object-cover smooth-transition group-hover:scale-105"
+                  />
+                  {/* Optional Decoration */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <p className="text-white font-medium">📍 Pasar Pendopo, Melayu</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Side */}
+              <div className="order-1 lg:order-2">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
+                  <MapPin size={16} />
+                  <span className="text-sm font-medium">Kunjungi Toko Fisik Kami</span>
+                </div>
+                
+                <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-6">
+                  Toko Ulis PONSEL
+                </h2>
+                
+                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                  Selain layanan IT, kami juga hadir melayani kebutuhan gadget Anda secara langsung. 
+                  Pusat layanan lengkap untuk service HP, jual beli ponsel baru, 
+                  dan aksesoris terlengkap dengan harga bersaing.
+                </p>
+
+                <ul className="space-y-4 mb-8">
+                  {[
+                    "Service HP Profesional (Hardware & Software)",
+                    "Jual HP Baru (Samsung, iPhone, Xiaomi, dll)",
+                    "Aksesoris Gadget Terlengkap"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                        <Check size={14} className="text-primary" />
+                      </div>
+                      <span className="text-foreground font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button 
+                    asChild 
+                    size="lg" 
+                    className="rounded-full smooth-transition hover:scale-105"
+                  >
+                    <Link href="/layanan">
+                      Info Selengkapnya
+                    </Link>
+                  </Button>
+                   <Button 
+                    asChild 
+                    variant="outline"
+                    size="lg"
+                    className="rounded-full smooth-transition hover:scale-105 bg-background"
+                  >
+                    <a href="https://maps.google.com/?q=Ulis+Ponsel" target="_blank" rel="noopener noreferrer">
+                      <MapPin className="mr-2 h-4 w-4" /> Lihat Lokasi
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </section>
