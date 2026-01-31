@@ -1,9 +1,4 @@
-/* 
-  Design: Organic Tech - Service details page with flowing layout
-  Detailed service cards with pricing and features
-*/
-
-import { Check, Laptop, Package, Globe, Wrench, Code, Smartphone } from "lucide-react";
+import { Check, Laptop, Package, Globe, Wrench, Code, Smartphone, Headphones, ShoppingBag, MapPin, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
@@ -14,10 +9,15 @@ export default function Layanan() {
     {
       icon: Laptop,
       title: "Instalasi Laptop/PC",
-      description: "Instalasi sistem operasi",
+      description: "Layanan instalasi dan perbaikan komputer profesional",
       image: "/images/service-installation.jpg",
       features: [
-        "Instalasi sistem operasi Windows(7,10,11)/linux/debian",
+        "Instalasi sistem operasi (Windows, Linux)",
+        "Upgrade RAM, SSD, dan hardware lainnya",
+        "Pembersihan dan maintenance rutin",
+        "Perbaikan hardware dan troubleshooting",
+        "Optimasi performa komputer",
+        "Backup dan recovery data",
       ],
     },
     {
@@ -44,6 +44,7 @@ export default function Layanan() {
         "Toko online / E-commerce",
         "Website UMKM dan katalog produk",
         "Landing page promosi",
+        "Website responsive (mobile-friendly)",
         "Domain dan hosting setup",
       ],
     },
@@ -65,6 +66,42 @@ export default function Layanan() {
       title: "Konsultasi IT",
       description: "Konsultasi teknologi untuk membantu Anda memilih solusi terbaik",
     },
+  ];
+
+  const ulisServices = [
+    {
+      icon: Wrench,
+      title: "Service HP Profesional",
+      description: "Perbaikan ponsel ditangani tenaga ahli dengan suku cadang original.",
+      details: [
+        "Ganti LCD/Layar pecah & Baterai",
+        "Perbaikan masalah software (Bootloop)",
+        "Ganti komponen (Kamera, Speaker, Tombol)",
+        "Harga transparan & bergaransi"
+      ]
+    },
+    {
+      icon: ShoppingBag,
+      title: "Jual HP Baru",
+      description: "Pilihan ponsel terbaru dengan harga bersaing sesuai kebutuhan Anda.",
+      details: [
+        "Tersedia Samsung, iPhone, Xiaomi, Oppo",
+        "Rekomendasi sesuai budget",
+        "Garansi resmi & terjamin",
+        "Konsultasi spesifikasi gratis"
+      ]
+    },
+    {
+      icon: Headphones,
+      title: "Aksesoris Lengkap",
+      description: "Lengkapi gadget Anda dengan aksesoris berkualitas dan trendi.",
+      details: [
+        "Casing & Tempered Glass",
+        "Charger & Kabel Data Original",
+        "Earphone, Headphone & TWS",
+        "Powerbank & Aksesoris lainnya"
+      ]
+    }
   ];
 
   return (
@@ -152,15 +189,15 @@ export default function Layanan() {
           </div>
         </section>
 
-        {/* Additional Services */}
+        {/* Additional Services (IT) */}
         <section className="py-16 md:py-24 bg-secondary/30">
           <div className="container">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-4">
-                Layanan Tambahan
+                Layanan Tambahan IT
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Dukungan lengkap untuk semua kebutuhan teknologi Anda
+                Dukungan teknis dan pengembangan sistem untuk bisnis Anda
               </p>
             </div>
 
@@ -170,7 +207,7 @@ export default function Layanan() {
                 return (
                   <Card 
                     key={index}
-                    className="soft-shadow hover:soft-shadow-lg smooth-transition hover:-translate-y-2 border-0"
+                    className="soft-shadow hover:soft-shadow-lg smooth-transition hover:-translate-y-2 border-0 bg-background"
                   >
                     <CardHeader>
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
@@ -188,6 +225,82 @@ export default function Layanan() {
                   </Card>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Ulis PONSEL Section (NEW) */}
+        <section className="py-16 md:py-24">
+          <div className="container">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-4">
+                <MapPin size={16} />
+                <span className="text-sm font-medium">Tersedia di Toko Fisik</span>
+              </div>
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-6">
+                Layanan di Toko Ulis PONSEL
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Kunjungi lokasi kami untuk menikmati layanan pusat ponsel lengkap. 
+                Solusi satu atap untuk perbaikan, jual beli, dan aksesoris gadget Anda.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+              {ulisServices.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <Card key={index} className="border-border/50 bg-card hover:border-primary/50 smooth-transition h-full">
+                    <CardHeader>
+                      <div className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center mb-4">
+                        <Icon className="text-primary" size={28} />
+                      </div>
+                      <CardTitle className="font-display text-2xl mb-2">{service.title}</CardTitle>
+                      <p className="text-muted-foreground">{service.description}</p>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-3">
+                        {service.details.map((detail, idx) => (
+                          <li key={idx} className="flex items-start gap-3 text-sm">
+                            <Check className="text-primary shrink-0 mt-0.5" size={16} />
+                            <span className="text-foreground/90">{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+
+            {/* Why Choose Ulis PONSEL */}
+            <div className="bg-secondary/30 rounded-3xl p-8 md:p-12">
+              <div className="text-center mb-10">
+                <h3 className="font-display font-bold text-2xl md:text-3xl mb-4">Kenapa Memilih Ulis PONSEL?</h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                    <ShieldCheck size={24} />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2">Pelayanan Profesional</h4>
+                  <p className="text-muted-foreground text-sm">Didukung tim ahli yang berpengalaman di dunia ponsel.</p>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                    <ShoppingBag size={24} />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2">Harga Kompetitif</h4>
+                  <p className="text-muted-foreground text-sm">Penawaran harga terjangkau tanpa mengurangi kualitas.</p>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                    <MapPin size={24} />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2">Lokasi Strategis</h4>
+                  <p className="text-muted-foreground text-sm">Mudah ditemukan, memudahkan Anda datang kapan saja.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
