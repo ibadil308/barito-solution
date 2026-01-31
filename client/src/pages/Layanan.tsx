@@ -229,23 +229,46 @@ export default function Layanan() {
           </div>
         </section>
 
-        {/* Ulis PONSEL Section (NEW) */}
+        {/* Ulis PONSEL Section (NEW - WITH IMAGE) */}
         <section className="py-16 md:py-24">
           <div className="container">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-4">
-                <MapPin size={16} />
-                <span className="text-sm font-medium">Tersedia di Toko Fisik</span>
+            {/* Intro Grid with Image */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+              {/* Text Content */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-4">
+                  <MapPin size={16} />
+                  <span className="text-sm font-medium">Tersedia di Toko Fisik</span>
+                </div>
+                <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-6">
+                  Layanan di Toko Ulis PONSEL
+                </h2>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  Kunjungi lokasi kami untuk menikmati layanan pusat ponsel lengkap. 
+                  Solusi satu atap untuk perbaikan, jual beli, dan aksesoris gadget Anda dengan pelayanan yang ramah dan profesional.
+                </p>
+                 <Button 
+                    asChild 
+                    variant="outline"
+                    className="rounded-full smooth-transition hover:scale-105"
+                  >
+                    <a href="https://maps.google.com/?q=Ulis+Ponsel" target="_blank" rel="noopener noreferrer">
+                      <MapPin className="mr-2 h-4 w-4" /> Lihat Lokasi
+                    </a>
+                  </Button>
               </div>
-              <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-6">
-                Layanan di Toko Ulis PONSEL
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Kunjungi lokasi kami untuk menikmati layanan pusat ponsel lengkap. 
-                Solusi satu atap untuk perbaikan, jual beli, dan aksesoris gadget Anda.
-              </p>
+
+              {/* Store Image */}
+              <div className="rounded-3xl overflow-hidden soft-shadow aspect-video relative lg:order-last order-first">
+                <img 
+                  src="/images/tokoulis.png" 
+                  alt="Toko Ulis PONSEL"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             </div>
 
+            {/* Services Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
               {ulisServices.map((service, index) => {
                 const Icon = service.icon;
