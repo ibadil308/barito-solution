@@ -1,38 +1,20 @@
-/* 
-  Design: Organic Tech - About page with contact info and map
-  Map integration will be added in next phase
+/* Design: Organic Tech - About page with contact info and map
+  Map integration: Fixed using Iframe for stability
 */
 
-import { MapPin, Phone, Instagram, Globe, Clock, Mail } from "lucide-react";
+import { MapPin, Phone, Instagram, Globe, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapView } from "@/components/Map";
+// import { MapView } from "@/components/Map"; // Hapus ini karena butuh API Key
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useRef } from "react";
+// import { useRef } from "react"; // Tidak lagi diperlukan
 
 export default function Tentang() {
-  const mapRef = useRef<google.maps.Map | null>(null);
-  
-  const businessLocation = {
-    lat: -0.959743,
-    lng: 114.905878,
-  };
+  // Koordinat toko Anda: -0.959743, 114.905878
+  // Link ini mengarah ke koordinat tersebut
+  const googleMapsEmbedUrl = "https://maps.google.com/maps?q=-0.959743,114.905878&hl=id&z=16&output=embed";
 
-  const handleMapReady = (map: google.maps.Map) => {
-    mapRef.current = map;
-    
-    // Add marker for business location
-    new google.maps.Marker({
-      map,
-      position: businessLocation,
-      title: "Barito Solution - Ulis PONSEL",
-      animation: google.maps.Animation.DROP,
-    });
-    
-    // Center map on business location
-    map.setCenter(businessLocation);
-  };
   const contactInfo = [
     {
       icon: Phone,
@@ -69,7 +51,8 @@ export default function Tentang() {
         <section 
           className="py-16 md:py-20 relative overflow-hidden"
           style={{
-            backgroundImage: "url(/images/about-pattern.jpg)",
+            backgroundImage: "url(/images/about-pattern.jpg)", // Pastikan gambar ini ada, atau ganti dengan bg-color
+            backgroundColor: "#f3f4f6", // Fallback color
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -108,6 +91,9 @@ export default function Tentang() {
                   </p>
                   <p>
                     Dengan pengalaman dan keahlian di bidang teknologi informasi, kami siap membantu Anda mengatasi berbagai tantangan teknologi, mulai dari instalasi hardware dan software hingga pembuatan website profesional untuk bisnis Anda.
+                  </p>
+                  <p>
+                    Tim kami terdiri dari teknisi berpengalaman yang siap memberikan solusi terbaik dan dukungan teknis yang responsif untuk memastikan sistem teknologi Anda berjalan dengan optimal.
                   </p>
                 </div>
               </div>
@@ -168,7 +154,7 @@ export default function Tentang() {
               </CardContent>
             </Card>
 
-            {/* Map Section - Placeholder */}
+            {/* Map Section - FIXED */}
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -179,13 +165,20 @@ export default function Tentang() {
                 </h3>
               </div>
               
-              {/* Google Maps */}
-              <MapView
-                className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden soft-shadow"
-                initialCenter={businessLocation}
-                initialZoom={16}
-                onMapReady={handleMapReady}
-              />
+              {/* Google Maps Iframe */}
+              <div className="w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden soft-shadow bg-secondary/20 relative">
+                <iframe 
+                  src={googleMapsEmbedUrl}
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Lokasi Toko Ulis PONSEL"
+                  className="absolute inset-0"
+                />
+              </div>
               
               {/* Address Info */}
               <div className="mt-6 p-6 bg-card rounded-2xl soft-shadow">
@@ -202,6 +195,19 @@ export default function Tentang() {
                       Kec. Teweh Tengah, Kabupaten Barito Utara<br />
                       Kalimantan Tengah
                     </p>
+                    <Button 
+                      variant="link" 
+                      className="p-0 h-auto mt-2 text-primary hover:no-underline hover:opacity-80"
+                      asChild
+                    >
+                      <a 
+                        href={`https://www.google.com/maps/search/?api=1&query=-0.959743,114.905878`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Buka di Google Maps &rarr;
+                      </a>
+                    </Button>
                   </div>
                 </div>
               </div>
