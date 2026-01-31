@@ -14,15 +14,10 @@ export default function Layanan() {
     {
       icon: Laptop,
       title: "Instalasi Laptop/PC",
-      description: "Layanan instalasi dan perbaikan komputer profesional",
+      description: "Instalasi sistem operasi",
       image: "/images/service-installation.jpg",
       features: [
-        "Instalasi sistem operasi (Windows, Linux)",
-        "Upgrade RAM, SSD, dan hardware lainnya",
-        "Pembersihan dan maintenance rutin",
-        "Perbaikan hardware dan troubleshooting",
-        "Optimasi performa komputer",
-        "Backup dan recovery data",
+        "Instalasi sistem operasi Windows(7,10,11)/linux/debian",
       ],
     },
     {
@@ -49,7 +44,6 @@ export default function Layanan() {
         "Toko online / E-commerce",
         "Website UMKM dan katalog produk",
         "Landing page promosi",
-        "Website responsive (mobile-friendly)",
         "Domain dan hosting setup",
       ],
     },
