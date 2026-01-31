@@ -223,7 +223,7 @@ export default function Home() {
                     size="lg"
                     className="rounded-full smooth-transition hover:scale-105 bg-background"
                   >
-                    <a href="https://maps.google.com/?q=Ulis+Ponsel" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.google.com/maps/search/?api=1&query=-0.959743,114.905878" target="_blank" rel="noopener noreferrer">
                       <MapPin className="mr-2 h-4 w-4" /> Lihat Lokasi
                     </a>
                   </Button>
